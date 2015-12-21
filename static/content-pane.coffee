@@ -4,4 +4,10 @@ window.ContentPane = ContentPane =
     @el = document.getElementById('content-pane')
 
   handle: (message) ->
-    @el.textContent = message if @el
+    if @el
+      @el.style.color = "#222"
+      setTimeout( (=>
+        @el.textContent = message
+        setTimeout( (=> @el.style.color = null), 200)
+      ), 50)
+

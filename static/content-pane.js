@@ -8,7 +8,15 @@
     },
     handle: function(message) {
       if (this.el) {
-        return this.el.textContent = message;
+        this.el.style.color = "#222";
+        return setTimeout(((function(_this) {
+          return function() {
+            _this.el.textContent = message;
+            return setTimeout((function() {
+              return _this.el.style.color = null;
+            }), 200);
+          };
+        })(this)), 50);
       }
     }
   };
