@@ -46,6 +46,7 @@ sendContent = function(forceSend) {
    }
 }
 
+// It would be better to use inotify.
 if (program.file) {
    setInterval(sendContent,1000)
 }
