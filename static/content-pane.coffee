@@ -9,5 +9,5 @@ window.ContentPane = ContentPane =
       setTimeout( (=>
         @el.textContent = message
         setTimeout( (=> @el.style.color = null), 200)
-      ), 50)
+      ), 200)
 

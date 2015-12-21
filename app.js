@@ -110,7 +110,7 @@ term.on('change', function() {
 
 function broadcast() {
   timeout = null
-  
+
   var operations = ScreenBuffer.diff(buffer, term.displayBuffer)
   if (operations.length === 0) return
 

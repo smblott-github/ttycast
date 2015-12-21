@@ -16,7 +16,7 @@
               return _this.el.style.color = null;
             }), 200);
           };
-        })(this)), 50);
+        })(this)), 200);
       }
     }
   };
