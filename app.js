@@ -36,11 +36,12 @@ var fs = require('fs')
 sendContent = function(forceSend) {
    if (program.file) {
       fs.readFile(program.file, 'utf8', function(err,data) {
-         if (!err) {
-            if ( data !== previousContent || forceSend ) {
-               previousContent = data
-               io.sockets.emit('data', { content: data })
-            }
+         if (err) {
+            data = ""
+         }
+         if ( data !== previousContent || forceSend ) {
+            previousContent = data
+            io.sockets.emit('data', { content: data })
          }
       })
    }
