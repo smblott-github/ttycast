@@ -4,7 +4,4 @@ window.ContentPane = ContentPane =
     @el = document.getElementById('content-pane')
 
   handle: (message) ->
-    return unless @el
-    @el.textContent = message
-
-window.onload = -> ContentPane.init()
+    @el.textContent = message if @el

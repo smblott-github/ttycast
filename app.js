@@ -29,17 +29,25 @@ if (program.current) {
   cols = process.stdout.columns
 }
 
-if (program.file) {
-   var previousContent = null;
-   fs = require('fs')
-   setInterval(function() {
+
+var fs = require('fs')
+  , previousContent = null;
+
+sendContent = function(forceSend) {
+   if (program.file) {
       fs.readFile(program.file, 'utf8', function(err,data) {
-         if ( !err && data !== previousContent ) {
-            previousContent = data
-            io.sockets.emit('data', { content: data })
+         if (!err) {
+            if ( data !== previousContent || forceSend ) {
+               previousContent = data
+               io.sockets.emit('data', { content: data })
+            }
          }
       })
-   }, 1000)
+   }
+}
+
+if (program.file) {
+   setInterval(sendContent,1000)
 }
 
 // create the server and require other libraries
@@ -85,6 +93,7 @@ var buffer = new ScreenBuffer()
 // we patch its buffer to our current state
 io.sockets.on('connection', function(sock) {
   io.sockets.emit('data', { operations: ScreenBuffer.diff(new ScreenBuffer(), buffer) })
+  sendContent(true);
 })
 
 // when the terminal's screen buffer is changed,

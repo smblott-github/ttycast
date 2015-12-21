@@ -7,15 +7,10 @@
       return this.el = document.getElementById('content-pane');
     },
     handle: function(message) {
-      if (!this.el) {
-        return;
+      if (this.el) {
+        return this.el.textContent = message;
       }
-      return this.el.textContent = message;
     }
-  };
-
-  window.onload = function() {
-    return ContentPane.init();
   };
 
 }).call(this);
