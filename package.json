@@ -16,7 +16,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "PORT=13376 phantomjs harness/smoke-test.js"
+    "test": "PORT=13376 phantomjs harness/smoke-test.js",
+    "preinstall": "coffee -c static/content-pane.coffee"
   },
   "license": "MIT"
 }
