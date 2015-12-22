@@ -9,6 +9,9 @@ window.onload = function() {
   var socket = io.connect()
   socket.on('data', function(message) {
     if ('operations' in message) {
+       if ( 0 < message.operations.length ) {
+          showTerminal()
+       }
        ScreenBuffer.patch(buf, message.operations);
     }
     if ('content' in message) {

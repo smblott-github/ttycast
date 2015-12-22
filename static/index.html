@@ -15,12 +15,25 @@ body {
   text-align: left;
   padding: 4px;
   margin: 10px;
+  visibility: hidden;
+}
+.message-container {
+  font-family: "DejaVu Sans Mono", "Menlo", "Monaco", "Liberation Mono", Consolas, "Courier New", monospace;
+  font-size: 100%;
+  background: #000;
+  text-align: left;
+  color: #666;
+  margin: 10px;
 }
 </style>
 <script src=components/ttycast-client/colors.js></script>
 <body>
 
-<div class="terminal-container">
+<div class="message-container" id="message-container">
+  The terminal has not yet connected; please hold tight...
+</div>
+
+<div class="terminal-container" id="terminal-container">
   <div class="terminal" id="terminal"></div>
 </div>
 
