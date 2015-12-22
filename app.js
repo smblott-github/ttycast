@@ -34,23 +34,19 @@ var fs = require('fs')
   , previousContent = null;
 
 sendContent = function(forceSend) {
-   if (program.file) {
+   if (program.file)
       fs.readFile(program.file, 'utf8', function(err,data) {
-         if (err) {
-            data = ""
-         }
+         if (err) data = ""
          if ( data !== previousContent || forceSend ) {
             previousContent = data
             io.sockets.emit('data', { content: data })
          }
       })
-   }
 }
 
-// It would be better to use inotify.
-if (program.file) {
+// It would be better to use inotify (rather than polling).
+if (program.file)
    setInterval(sendContent,1000)
-}
 
 // create the server and require other libraries
 var connect = require('connect')
