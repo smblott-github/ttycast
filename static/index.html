@@ -4,28 +4,43 @@
 <link rel=stylesheet href=components/ttycast-client/ttycast.css>
 <style>
 body {
+  font-family: "DejaVu Sans Mono", "Menlo", "Monaco", "Liberation Mono", Consolas, "Courier New", monospace;
   background: #000;
-  text-align: center;
+  text-align: left;
   font-size: 14px;
+  color: #666;
+  margin-left: 30px;
 }
 .terminal-container {
   display: inline-block;
   box-shadow: 0 0 20px rgba(255,255,255,0.4);
   text-align: left;
   padding: 4px;
-  margin: 10px;
+  visibility: hidden;
 }
 </style>
 <script src=components/ttycast-client/colors.js></script>
 <body>
 
+<div class="message-container" id="message-container">
+  <p>The terminal has not yet connected; please hold tight...</p>
+</div>
+
 <div class="terminal-container">
   <div class="terminal" id="terminal"></div>
 </div>
+
+<br/>
+<br/>
+<div class="content-container">
+  <pre id="content-pane">Hello</pre>
+</div>
+
 <script src="socket.io/socket.io.js"></script>
 <script src="components/screen-buffer/screen-buffer.js"></script>
 <script src="components/screen-buffer/patch.js"></script>
 <script src="components/ttycast-client/display-buffer.js"></script>
 <script src="ttycast.js"></script>
+<script src="einstein.js"></script>
 </body>
 
