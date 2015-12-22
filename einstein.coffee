@@ -4,7 +4,8 @@
 
 sendContent = do ->
   previousContent = null
-  contentFile = "/tmp/#{process.env.USER}-ttycast-content.txt"
+  user = process.env.USER ? 'unknown'
+  contentFile = "/tmp/#{user}-ttycast-content.txt"
   console.log "listening for content in #{contentFile}"
 
   (sock = null) ->
