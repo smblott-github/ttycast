@@ -99,3 +99,4 @@ server.listen(Number(process.env.PORT) || 13377, function() {
   console.log('ttycast listening on %s port %s', address.address, address.port)
 })
 
+module.exports.io = io
