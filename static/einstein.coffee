@@ -17,7 +17,7 @@ window.onload = ->
     el = document.getElementById 'content-pane'
     color = el.style.color
     (data) ->
-      # We use a mini tween-like effect to by changing the font color.
+      # We use a mini tween-like effect by changing the font color.
       el.style.color = '#333'
       timeoutSet 200, ->
         el.textContent = data
