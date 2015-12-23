@@ -18,9 +18,17 @@ body {
   padding: 4px;
   visibility: hidden;
 }
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 </style>
 <script src=components/ttycast-client/colors.js></script>
-<body>
+<body class="noselect">
 
 <div class="message-container" id="message-container">
   <p>The terminal has not yet connected; please hold tight...</p>
